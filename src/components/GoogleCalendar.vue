@@ -1,7 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <iframe :src="calendarUrl" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-    </iframe>
+    <iframe :src="calendarUrl" style="border: 0; width: 100%;" height="600" frameborder="0" scrolling="no"></iframe>
   </div>
 </template>
 
@@ -16,4 +15,20 @@ const calendarUrl = computed(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%;
+  /* Proporção de aspecto do calendário (altura/largura) */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
