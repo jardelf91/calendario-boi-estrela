@@ -1,7 +1,7 @@
 <template>
   <div class="bg-page">
     <div class="centered-logo-container">
-      <img src="/src/assets/Logo.png" alt="Logo" class="centered-logo">
+      <img :src="logo" alt="Logo" class="centered-logo">
     </div>
     <q-page padding>
       <div class="calendar-container">
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import Calendar from 'components/KCalendarioBoi.vue'
+import logo from '/src/assets/Logo.png'
 
 defineOptions({
   name: 'IndexPage'
