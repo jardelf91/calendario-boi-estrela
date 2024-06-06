@@ -34,7 +34,7 @@ defineOptions({
 }
 
 .centered-logo {
-  max-width: 200px;
+  max-width: 100px;
   width: 100%;
   display: inline-block;
 }
