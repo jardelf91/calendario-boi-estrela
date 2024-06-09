@@ -8,7 +8,12 @@
           <div class="text-h6">{{ eventDetails.title }}</div>
           <div>{{ eventDetails.start }}</div>
           <br />
-          <div>{{ eventDetails.description }}</div>
+          <div style="color: #1D861D;" class="location-section"> <q-icon name="sort" style="color:blue" />
+            <div class="location-text">
+              {{ eventDetails.description }}
+            </div>
+          </div>
+          <br />
           <div v-if="eventDetails.location" class="location-section">
             <q-icon name="place" color="primary" />
             <div class="location-text">
@@ -63,12 +68,12 @@ const calendarOptions = ref({
     googleCalendarId: '9b4e280188a68d3b7b1c65e7ab3752e2cc5eadaef2c35c8f9aad5e020401ea3c@group.calendar.google.com',
     className: 'gcal-event',
     color: 'black',
-    textColor: 'yellow'
+    textColor: 'yellow',
   },
   headerToolbar: {
     left: 'prev,next today',
     center: 'title',
-    right: 'dayGridMonth'
+    right: ''
   },
   buttonText: {
     today: 'Hoje',
@@ -77,6 +82,9 @@ const calendarOptions = ref({
   locale: 'pt-br',
   themeSystem: 'standard',
   eventDisplay: 'block',
+  eventColor: 'red',
+  displayEventTime: false,
+  progressiveEventRendering: false,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   eventClick: (info: any) => {
     // Previne a navegação para o Google Calendar
@@ -117,29 +125,6 @@ const calendarOptions = ref({
   color: black;
 }
 
-/* Novos estilos para garantir que os eventos não sejam cortados */
-.fc .fc-event-title,
-.fc .fc-event-time {
-  white-space: normal;
-  /* Permite quebra de linha */
-  word-wrap: break-word;
-  /* Quebra palavras longas */
-}
-
-.fc .fc-daygrid-event {
-  height: auto !important;
-  /* Garante que o container do evento ajuste a altura automaticamente */
-}
-
-/* Ajuste para telas pequenas */
-@media (max-width: 768px) {
-
-  .fc .fc-event-title,
-  .fc .fc-event-time {
-    font-size: 0.875rem;
-    /* Reduz o tamanho da fonte */
-  }
-}
 
 .location-section {
   display: flex;
